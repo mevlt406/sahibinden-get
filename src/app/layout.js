@@ -5,7 +5,7 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
+//some changes
 export const metadata = {
   title: "Sahibinden - Param Güvende Hizmetleri",
   description: "Sahibinden Param Güvende ile hızlı ve güvenli alışveriş yapın.",
