@@ -7,7 +7,7 @@ const inter = Inter({
 });
 //some changes
 export const metadata = {
-  title: "Sahibinden - Param Güvende Hizmetleri Hızlı Satış",
+  title: "Sahibinden - oye",
   description: "Sahibinden Param Güvende ile hızlı ve güvenli alışveriş yapın.",
   icons: {
     icon: '../../public/sahibinden.png',
@@ -18,6 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta property="og:title" content="Sahibinden - Param Güvende Hizmetleri Hızlı Satış" />
+        <meta property="og:description" content="Sahibinden Param Güvende ile hızlı ve güvenli alışveriş yapın." />
+        <meta property="og:image" content="https://sahibinden-get.vercel.app/sahibinden.png" />
+        <meta property="og:url" content="https://sahibinden-get.vercel.app" />
         <style>{`
           #__next-build-watcher { display: none !important; }
           #NextLogo { display: none !important; }
