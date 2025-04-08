@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import icon from "../../public/sahibinden.png";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,7 +10,7 @@ export const metadata = {
   title: "Sahibinden - Param Güvende Hizmetleri",
   description: "Sahibinden Param Güvende ile hızlı ve güvenli alışveriş yapın.",
   icons: {
-    icon: icon,
+    icon: '/sahibinden.png',
   },
 };
 
