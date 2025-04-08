@@ -309,7 +309,21 @@ export default function Home() {
 
 
         {activeTab === 1 && <div className="w-full h-full flex flex-col  px-2 py-3 text-sm"> Türkiye cihazdır . değişeni vesaire yoktur yerimiz bursada 81 ilimize kargomuz mevcuttur cüzdanım güvende ile satın alabilirsiniz. yazmadan satın almayın. pazarlık için yazın </div>}
-        {activeTab === 2 && <div>Konumu</div>}
+      
+      
+        {activeTab === 2 && (
+          <div className="w-full h-[400px] relative">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d192698.6296252689!2d29.01986565!3d41.0055005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2str!4v1710399485099!5m2!1sen!2str"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        )}
        </div>
 
         {/* Product Information */}
