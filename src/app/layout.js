@@ -7,8 +7,8 @@ const inter = Inter({
 });
 //some changes
 export const metadata = {
-  title: "Sahibinden - Param Güvendes",
-  description: "Sahibinden ",
+  title: "Sahibinden - Param Güvende Hizmetleri Hızlı Satış",
+  description: "Sahibinden Param Güvende ile hızlı ve güvenli alışveriş yapın.",
   icons: {
     icon: '../../public/sahibinden.png',
   },
