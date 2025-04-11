@@ -7,6 +7,13 @@ export const productData = {
     get totalPrice() {
         return this.price + this.serviceFee;
     }, // Toplam fiyat (price + serviceFee)
+
+    imagesUrls: [
+      "https://ik.imagekit.io/nsnnosdo1/iphone.jpg?updatedAt=1744387783440",
+      "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(5).jpeg?updatedAt=1744388175045",
+      "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(1).jpeg?updatedAt=1744388174985",
+      "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(2).jpeg?updatedAt=1744388174772",
+    ],
   
     specs: {
       storage: "256 GB",

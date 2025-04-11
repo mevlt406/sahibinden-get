@@ -3,12 +3,12 @@
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import Image from "next/image";
-import iphone from "../assets/iphone.jpg"
-import secure from "../assets/shlogo2.png"
-import kamyon from "../assets/kamyon2.png"
-import iade from "../assets/iade.png"
-import akbank from "../assets/akbank.png"
-import { productData } from '../data/productData';
+import iphone from "../../assets/iphone.jpg"
+import secure from "../../assets/shlogo2.png"
+import kamyon from "../../assets/kamyon2.png"
+import iade from "../../assets/iade.png"
+import akbank from "../../assets/akbank.png"
+import { productData } from "../../data/productData"
 
 // Dynamically import MUI components with no SSR
 const Stepper = dynamic(() => import('@mui/material/Stepper'), { ssr: false });
@@ -416,6 +416,24 @@ const page = () => {
     window.location.href = 'https://www.sahibinden.com';
   };
 
+  const scrollToTop = () => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (activeStep === 2 || activeStep === 3 || activeStep === 1) {
+      // Küçük bir gecikme ekleyerek DOM'un tamamen yüklenmesini bekleyelim
+      setTimeout(() => {
+        scrollToTop();
+      }, 100);
+    }
+  }, [activeStep]);
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Stepper */}
@@ -436,7 +454,7 @@ const page = () => {
           <div className='w-full h-auto flex flex-col'> 
            <div className='flex flex-col w-full  bg-[#E8F6F4] border-t border-gray-300 px-3 pt-3'> 
             <div className='w-full flex gap-3 justify-between border-b border-[#b2d1cc] pb-6'> 
-             <Image src={iphone} alt="iphone" className="w-[20%] rounded-sm mt-1  h-auto  bg-cover bg-center" />
+             <Image src={productData.product.imagesUrls[0]} width={100} height={100} alt="iphone" className="w-[20%] rounded-sm mt-1  h-auto  bg-cover bg-center" />
              <div className='flex flex-col gap-4  py-1 w-full'> 
                <p className='text-sm text-gray-700'>{productData.product.title}</p>
                <span className='self-end text-lg text-gray-700 '>{productData.product.price} TL</span>
@@ -538,7 +556,7 @@ const page = () => {
            
            <div className=' flex flex-col gap-2 w-full h-full border-t border-gray-300 p-3 bg-white'>
              <div className='flex gap-4'>
-              <Image src={iphone} alt="iphone" className="w-16 h-16 border rounded-sm mt-1    bg-cover bg-center" />
+              <Image src={productData.product.imagesUrls[0]} width={100} height={100} alt="iphone" className="w-16 h-16 border rounded-sm mt-1    bg-cover bg-center" />
               <p className='text-sm text-gray-700 mt-1'>{productData.product.title}</p>
              </div> 
 
