@@ -1,15 +1,16 @@
 'use client';
 
 import Image from "next/image";
-import iphone from "../assets/iphone.jpg"
-import year from "../assets/shlogo.png"
-import secure from "../assets/shlogo2.png"
-import secure3 from "../assets/secure3.png"
-import kamyon from "../assets/kamyon.png"
-import onaylı2 from "../assets/onaylı3.png"
 import { useState, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import { productData } from '../data/productData';
+import { useRouter, usePathname, useParams } from "next/navigation";
+import { productData } from '../../data/productData';
+
+// Import assets from the correct path
+import year from "../../assets/shlogo.png";
+import secure from "../../assets/shlogo2.png";
+import secure3 from "../../assets/secure3.png";
+import kamyon from "../../assets/kamyon.png";
+import onaylı2 from "../../assets/onaylı3.png";
 
 const styles = {
   '.no-scrollbar::-webkit-scrollbar': {
@@ -21,14 +22,28 @@ const styles = {
   }
 };
 
-export default function Home() {
+export default function ProductPage() {
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
+  const { id } = params;
+  
   const [activeTab, setActiveTab] = useState(0);
   const [isButtonFixed, setIsButtonFixed] = useState(false);
   const [hasBeenVisible, setHasBeenVisible] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
   
+  // Find the product with matching id
+  const currentProduct = productData.find(item => item.id === id);
+
+  if (!currentProduct) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-xl text-gray-600">Ürün bulunamadı</p>
+      </div>
+    );
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       const buyButton = document.getElementById('buyButton');
@@ -57,19 +72,18 @@ export default function Home() {
       description: "S - Param Güvende ile bireysel satıcıdan satın aldığınız ürün için, size ulaştıktan sonra 2 gün içerisinde iade talebinde bulunabilirsiniz. İade talebinde bulunduğunuz ürünü 3 iş günü içinde kargoya teslim etmelisiniz. Kurumsal satıcıdan aldığınız ürün ise size ulaştıktan sonra 14 gün içinde iade edilebilir. S - Param Güvende hizmetinden faydalanabilmeniz için ürün iadesinde anlaşmalı kargo firmalarını kullanmalısınız."
     },
     {
-      title: "Ürün tutari saticinin hesabina ne zaman gönderilir?",
+      title: "Ürün tutarı satıcının hesabına ne zaman gönderilir?",
       description: "Alıcı ürünü onayladıktan sonra ürün tutarı satıcı hesabına gönderilir. Tutarın hesaba yansıması, bankaya bağlı olarak 1-5 iş gününü bulabilir."
     },
     {
-      title: "Alici ürünü onaylamazsa ne olur?",
+      title: "Alıcı ürünü onaylamazsa ne olur?",
       description: "Alıcı ürünü onaylamaz ya da iade talebinde bulunmazsa, 2 gün sonunda işlem otomatik olarak onaylanır ve ürün tutarı satıcıya aktarılır."
     },
     {
-      title: "S - Param Güvende hizmet bedeli kim tarafindan ödenir?",
+      title: "S - Param Güvende hizmet bedeli kim tarafından ödenir?",
       description: "S - Param Güvende hizmet bedeli, satın alma esnasında alıcı tarafından ödenir. Hizmet bedeli, aldığınız ürünün fiyatına göre belirlenir."
     },
-  
-  ]
+  ];
 
   const handleScroll = (e) => {
     const scrollPosition = e.target.scrollLeft;
@@ -89,7 +103,7 @@ export default function Home() {
         
        {/* Product Name */}
        <div className=" w-full px-4 bg-[#F7F7F7] py-1 text-center"> 
-        <p className="text-sm">{productData.product.title}</p> 
+        <p className="text-sm">{currentProduct.product.title}</p> 
         </div> 
 
        {/* Product Image  */}
@@ -113,13 +127,13 @@ export default function Home() {
             onScroll={handleScroll}
           >
             <div className="flex w-full">
-              {[1, 2, 3, 4].map((_, index) => (
+              {currentProduct.product.imagesUrls.map((imageUrl, index) => (
                 <div 
                   key={index} 
                   className="flex-shrink-0 w-full flex justify-center snap-center"
                 >
                   <Image 
-                    src={productData.product.imagesUrls[index]}
+                    src={imageUrl}
                     alt={`iphone-${index + 1}`} 
                     className="w-[54%] mt-1 h-auto"
                     draggable="false"
@@ -133,7 +147,7 @@ export default function Home() {
           
           {/* Dots Indicator */}
           <div className="flex justify-center gap-2 mt-2 mb-4">
-            {[1, 2, 3, 4].map((_, index) => (
+            {currentProduct.product.imagesUrls.map((_, index) => (
               <div
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors duration-300 ${
@@ -150,7 +164,7 @@ export default function Home() {
         <Image src={onaylı2} alt="profile" className="w-20 cover bg-cover " />
       
         <div className="flex flex-row items-center gap-1 mr-4"> 
-          <p className="text-sm text-[#039]"> {productData.seller.name}</p>
+          <p className="text-sm text-[#039]"> {currentProduct.seller.name}</p>
           <Image src={secure} alt="profile" className="w-5 h-5 rounded-full" />  
         </div>
       
@@ -161,8 +175,8 @@ export default function Home() {
 
        {/* Product Pattern / addres */}
        <div className="bg-[#F7F7F7] border-b-2 border-amber-300 flex flex-col gap-2 w-full px-2 pt-3"> 
-         <p className="text-xs text-[#039] text-center">{productData.listing.category}</p>
-         <p className="text-xs text-center text-gray-600">{productData.seller.location}</p>
+         <p className="text-xs text-[#039] text-center">{currentProduct.listing.category}</p>
+         <p className="text-xs text-center text-gray-600">{currentProduct.seller.location}</p>
 
          <div className="w-full h-[36px] flex gap-1 items-center px-1 justify-between">
           <div 
@@ -201,62 +215,62 @@ export default function Home() {
            
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Fiyat</p>
-            <p className="text-[12px] text-[#039] font-bold">{productData.product.price} TL</p>
+            <p className="text-[12px] text-[#039] font-bold">{currentProduct.product.price} TL</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">İlan Tarihi</p>
-            <p className="text-[12px] text-gray-700 ">{productData.listing.date}</p>
+            <p className="text-[12px] text-gray-700 ">{currentProduct.listing.date}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">İlan No</p>
-            <p className="text-[12px]  text-[#039] ">{productData.listing.id}</p>
+            <p className="text-[12px]  text-[#039] ">{currentProduct.listing.id}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Kimden</p>
-            <p className="text-[12px]  text-red-800 ">{productData.listing.type}</p>
+            <p className="text-[12px]  text-red-800 ">{currentProduct.listing.type}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Dahili Hafıza</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.storage}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.storage}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">İşletim Sistemi</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.os}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.os}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Ön Kamera</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.frontCamera}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.frontCamera}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Arka Kamera</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.backCamera}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.backCamera}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Renk</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.color}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.color}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Garanti</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.warranty}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.warranty}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Ekran</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.screen}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.screen}</p>
            </div>
 
            <div className="w-full py-2 flex items-center justify-between border-b border-gray-200">
             <p className="text-[12px] text-gray-700">Takas</p>
-            <p className="text-[12px] text-gray-700">{productData.product.specs.trade}</p>
+            <p className="text-[12px] text-gray-700">{currentProduct.product.specs.trade}</p>
            </div>
 
           
@@ -267,8 +281,8 @@ export default function Home() {
 
          {/* Delivery Information */}
          <div className="flex flex-col gap-1 items-center justify-center w-full h-20 bg-[#3E6189] "> 
-          <p className="text-white text-sm">{productData.delivery.time}</p>
-          <div className="flex flex-row items-center gap-1"> <Image src={kamyon} alt="kamyon" className="w-6 bg-cover bg-center" /> <p className="text-xs text-gray-400">{productData.delivery.method}</p> </div>  
+          <p className="text-white text-sm">{currentProduct.delivery.time}</p>
+          <div className="flex flex-row items-center gap-1"> <Image src={kamyon} alt="kamyon" className="w-6 bg-cover bg-center" /> <p className="text-xs text-gray-400">{currentProduct.delivery.method}</p> </div>  
          </div>
         
          {/* Buy Button */}
@@ -295,7 +309,7 @@ export default function Home() {
            ))}
 
 
-           <p className="self-center text-gray-500 text-sm text-center">*Güvenli Hesap: sahibinden.com çözüm ortagi olan ödeme kuruluşunun hesabidir.</p>
+           <p className="self-center text-gray-500 text-sm text-center">*Güvenli Hesap: sahibinden.com çözüm ortağı olan ödeme kuruluşunun hesabıdır.</p>
 
 
 

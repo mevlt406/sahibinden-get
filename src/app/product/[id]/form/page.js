@@ -3,12 +3,13 @@
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import Image from "next/image";
-import iphone from "../../assets/iphone.jpg"
-import secure from "../../assets/shlogo2.png"
-import kamyon from "../../assets/kamyon2.png"
-import iade from "../../assets/iade.png"
-import akbank from "../../assets/akbank.png"
-import { productData } from "../../data/productData"
+import iphone from "../../../assets/iphone.jpg"
+import secure from "../../../assets/shlogo2.png"
+import kamyon from "../../../assets/kamyon2.png"
+import iade from "../../../assets/iade.png"
+import akbank from "../../../assets/akbank.png"
+import { productData } from "../../../data/productData"
+import { useParams } from 'next/navigation';
 
 // Dynamically import MUI components with no SSR
 const Stepper = dynamic(() => import('@mui/material/Stepper'), { ssr: false });
@@ -134,6 +135,20 @@ const formatPhoneNumber = (value) => {
 };
 
 const page = () => {
+  const params = useParams();
+  const { id } = params;
+  
+  // Find the product with matching id
+  const currentProduct = productData.find(item => item.id === id);
+
+  if (!currentProduct) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-xl text-gray-600">Ürün bulunamadı</p>
+      </div>
+    );
+  }
+
   const [activeStep, setActiveStep] = useState(0);
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
@@ -448,27 +463,27 @@ const page = () => {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 pb-16  ">
+      <div className="flex-1 pb-16">
         {/* Step 1 Content - Ürün */}
         {activeStep === 0 && (
           <div className='w-full h-auto flex flex-col'> 
            <div className='flex flex-col w-full  bg-[#E8F6F4] border-t border-gray-300 px-3 pt-3'> 
             <div className='w-full flex gap-3 justify-between border-b border-[#b2d1cc] pb-6'> 
-             <Image src={productData.product.imagesUrls[0]} width={100} height={100} alt="iphone" className="w-[20%] rounded-sm mt-1  h-auto  bg-cover bg-center" />
+             <Image src={currentProduct.product.imagesUrls[0]} width={100} height={100} alt="iphone" className="w-[20%] rounded-sm mt-1  h-auto  bg-cover bg-center" />
              <div className='flex flex-col gap-4  py-1 w-full'> 
-               <p className='text-sm text-gray-700'>{productData.product.title}</p>
-               <span className='self-end text-lg text-gray-700 '>{productData.product.price} TL</span>
+               <p className='text-sm text-gray-700'>{currentProduct.product.title}</p>
+               <span className='self-end text-lg text-gray-700 '>{currentProduct.product.price} TL</span>
              </div>
             </div>
 
             <div className='w-full flex gap-3 items-center justify-between border-b border-[#b2d1cc] py-3'> 
                <p className='text-sm text-gray-700'>S - Param Güvende Hizmet Bedeli</p>
-               <span className='self-end text-lg text-gray-700 '>{productData.product.serviceFee} TL</span>
+               <span className='self-end text-lg text-gray-700 '>{currentProduct.product.serviceFee} TL</span>
             </div>
 
             <div className='w-full flex gap-3 items-center justify-between  py-3'> 
                <p className='text-sm text-gray-700 font-bold'>Toplam</p>
-               <span className='self-end text-lg text-gray-700  font-bold'>{productData.product.totalPrice} TL</span>
+               <span className='self-end text-lg text-gray-700  font-bold'>{currentProduct.product.totalPrice} TL</span>
             </div>
            </div>
 
@@ -556,23 +571,23 @@ const page = () => {
            
            <div className=' flex flex-col gap-2 w-full h-full border-t border-gray-300 p-3 bg-white'>
              <div className='flex gap-4'>
-              <Image src={productData.product.imagesUrls[0]} width={100} height={100} alt="iphone" className="w-16 h-16 border rounded-sm mt-1    bg-cover bg-center" />
-              <p className='text-sm text-gray-700 mt-1'>{productData.product.title}</p>
+              <Image src={currentProduct.product.imagesUrls[0]} width={100} height={100} alt="iphone" className="w-16 h-16 border rounded-sm mt-1    bg-cover bg-center" />
+              <p className='text-sm text-gray-700 mt-1'>{currentProduct.product.title}</p>
              </div> 
 
              <div className='flex justify-between'>
                <p className='text-sm text-gray-700 '>Ürün Tutarı</p>
-               <span className='text-sm text-gray-700 '>{productData.product.price} TL</span>
+               <span className='text-sm text-gray-700 '>{currentProduct.product.price} TL</span>
              </div> 
 
              <div className='flex justify-between'>
                <p className='text-sm text-gray-700 '>S - Param Güvende Hizmet Bedeli</p>
-               <span className='text-sm text-gray-700 '>{productData.product.serviceFee} TL</span>
+               <span className='text-sm text-gray-700 '>{currentProduct.product.serviceFee} TL</span>
              </div> 
 
              <div className='flex justify-between'>
                <p className='text-sm text-gray-700 font-bold '>Toplam</p>
-               <span className='text-sm text-gray-700 font-bold '>{productData.product.totalPrice} TL</span>
+               <span className='text-sm text-gray-700 font-bold '>{currentProduct.product.totalPrice} TL</span>
              </div> 
              
              
@@ -594,7 +609,7 @@ const page = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full border ${errors.name ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300`} 
+                  className={`w-full border ${errors.name ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-800`} 
                 />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                </div>
@@ -606,7 +621,7 @@ const page = () => {
                     name="surname"
                     value={formData.surname}
                     onChange={handleInputChange}
-                    className={`w-full border ${errors.surname ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300`} 
+                    className={`w-full border ${errors.surname ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-300`} 
                   />
                   {errors.surname && <p className="text-red-500 text-xs mt-1">{errors.surname}</p>}
                 </div>
@@ -619,7 +634,7 @@ const page = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="(5XX) XXX XX XX" 
-                    className={`w-full border ${errors.phone ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm`}  
+                    className={`w-full border ${errors.phone ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm`}  
                   />
                   {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
@@ -632,7 +647,7 @@ const page = () => {
                     value={formData.addressName}
                     onChange={handleInputChange}
                     placeholder="Örn: Ev Adresi, İş Adresi" 
-                    className={`w-full border ${errors.addressName ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm`} 
+                    className={`w-full border ${errors.addressName ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm`} 
                   />
                   {errors.addressName && <p className="text-red-500 text-xs mt-1">{errors.addressName}</p>}
                 </div>
@@ -643,7 +658,7 @@ const page = () => {
                     <select
                       value={selectedProvince}
                       onChange={handleProvinceChange}
-                      className={`w-full border ${errors.province ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300 text-sm rounded appearance-none pr-8`}
+                      className={`w-full border ${errors.province ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-300 text-sm rounded appearance-none pr-8`}
                     >
                       <option value="" disabled>Seçiniz</option>
                       {provinces.map((province) => (
@@ -668,7 +683,7 @@ const page = () => {
                       value={selectedDistrict}
                       onChange={handleDistrictChange}
                       disabled={!selectedProvince}
-                      className={`w-full border ${errors.district ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300 text-sm rounded appearance-none pr-8`}
+                      className={`w-full border ${errors.district ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-300 text-sm rounded appearance-none pr-8`}
                     >
                       <option value="" disabled>Seçiniz</option>
                       {getDistricts(selectedProvince).map((district) => (
@@ -693,7 +708,7 @@ const page = () => {
                     value={formData.address}
                     onChange={handleInputChange}
                     placeholder="İlçe, semt, cadde vb. bilgiler" 
-                    className={`w-full border ${errors.address ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-gray-400 transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm min-h-[100px] resize-y`}
+                    className={`w-full border ${errors.address ? 'border-red-500' : 'border-gray-400'} p-2 outline-none focus:border-[#009285] focus:ring-1 focus:ring-[#009285] transition-all duration-300 placeholder:text-gray-400 placeholder:text-sm min-h-[100px] resize-y`}
                     rows="4"
                   ></textarea>
                   {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
@@ -730,17 +745,17 @@ const page = () => {
                 
                 <div className='flex w-full justify-between'>
                    <p className='text-sm text-gray-700'>Ürün Tutarı</p>
-                   <span className='text-sm text-gray-700 font-bold opacity-95'>{productData.product.price} TL</span>
+                   <span className='text-sm text-gray-700 font-bold opacity-95'>{currentProduct.product.price} TL</span>
                  </div>
 
                  <div className='flex w-full justify-between'>
                    <p className='text-sm text-gray-700'>S - Param Güvende Hizmet Bedeli</p>
-                   <span className='text-sm text-gray-700 font-bold opacity-95'>{productData.product.serviceFee} TL</span>
+                   <span className='text-sm text-gray-700 font-bold opacity-95'>{currentProduct.product.serviceFee} TL</span>
                  </div>
 
                  <div className='flex w-full justify-between'>
                    <p className='text-sm text-gray-700'>Ödenecek Tutar</p>
-                   <span className='text-sm text-gray-700 font-bold opacity-95'>{productData.product.totalPrice} TL</span>
+                   <span className='text-sm text-gray-700 font-bold opacity-95'>{currentProduct.product.totalPrice} TL</span>
                  </div>
               </div>
 
