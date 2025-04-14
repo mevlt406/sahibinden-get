@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import Image from "next/image";
-import iphone from "../../../assets/iphone.jpg"
 import secure from "../../../assets/shlogo2.png"
 import kamyon from "../../../assets/kamyon2.png"
 import iade from "../../../assets/iade.png"
@@ -149,7 +148,7 @@ const page = () => {
     );
   }
 
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(3);
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
   const [formData, setFormData] = useState({
@@ -386,14 +385,14 @@ const page = () => {
     setShowNotification(false);
   };
 
-  const handleFileUpload = (event) => {
+  const handleFileUpload = async (event) => {
     const file = event.target.files[0];
     if (file) {
       setIsUploading(true);
       setUploadProgress(0);
       setIsPaymentValid(false);
       
-      // Store file info immediately
+      // Dosya bilgilerini sakla
       const fileInfo = {
         name: file.name,
         type: file.type,
@@ -402,27 +401,30 @@ const page = () => {
       };
       setUploadedFile(fileInfo);
       
-      // Simulate upload progress
-      const interval = setInterval(() => {
-        setUploadProgress(prev => {
-          if (prev >= 100) {
-            clearInterval(interval);
-            setIsUploading(false);
-            setIsPaymentValid(true);
-            return 100;
-          }
-          return prev + 10;
+      // Dosyayı FormData olarak hazırla
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      try {
+        // Dosyayı API endpoint'e gönder
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData
         });
-      }, 200);
-
-      // Convert file to base64 for preview
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        fileInfo.preview = e.target.result;
-        localStorage.setItem('paymentConfirmation', JSON.stringify(fileInfo));
-        setUploadedFile(fileInfo);
-      };
-      reader.readAsDataURL(file);
+        
+        if (response.ok) {
+          // Yükleme başarılı
+          setIsUploading(false);
+          setIsPaymentValid(true);
+          setUploadProgress(100);
+        } else {
+          throw new Error('Dosya yükleme başarısız oldu');
+        }
+      } catch (error) {
+        console.error('Dosya yükleme hatası:', error);
+        setIsUploading(false);
+        setIsPaymentValid(false);
+      }
     }
   };
 

@@ -71,7 +71,6 @@ export const productData = [
     }
   },
  
- 
   {
     id: "2",
     // Ürün Detayları
@@ -142,7 +141,6 @@ export const productData = [
       ]
     }
   },
- 
  
   {
     id: "iphone-15-pro-max-256-gb-kutu-fatura-sahibinden",
@@ -215,5 +213,6 @@ export const productData = [
       ]
     }
   },
+  
   // Diğer ürünler buraya eklenebilir
 ]; 
