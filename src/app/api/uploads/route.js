@@ -42,7 +42,13 @@ export async function GET() {
 
 export async function DELETE(request) {
   try {
-    const { fileName } = await request.json();
+    const { fileName, password } = await request.json();
+    
+    // Şifre kontrolü
+    if (password !== process.env.UPLOADS_PASS) {
+      return NextResponse.json({ error: 'Yetkisiz erişim' }, { status: 401 });
+    }
+
     const filePath = path.join(process.cwd(), 'public', 'uploads', fileName);
 
     // Dosyanın varlığını kontrol et

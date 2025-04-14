@@ -64,13 +64,17 @@ export default function UploadsPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ fileName }),
+        body: JSON.stringify({ 
+          fileName,
+          password: process.env.UPLOADS_PASS 
+        }),
       });
 
       if (response.ok) {
         setFiles(files.filter(file => file.name !== fileName));
       } else {
-        alert('Dosya silinirken bir hata oluştu');
+        const data = await response.json();
+        alert(data.error || 'Dosya silinirken bir hata oluştu');
       }
     } catch (error) {
       console.error('Dosya silinirken hata oluştu:', error);
