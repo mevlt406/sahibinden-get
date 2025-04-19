@@ -148,7 +148,7 @@ const page = () => {
     );
   }
 
-  const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(0);
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedDistrict, setSelectedDistrict] = useState('');
   const [formData, setFormData] = useState({
@@ -336,7 +336,7 @@ const page = () => {
   };
 
   const handleCopyIban = async () => {
-    const iban = 'TR123456789012345678901234';
+    const iban = 'TR04 0082 9000 0949 1834 8330 68';
     try {
       await navigator.clipboard.writeText(iban);
       setCopiedIban(iban);
@@ -780,7 +780,7 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>TR123456789012345678901234</p>
+                  <p className='text-sm text-gray-700 '>TR04 0082 9000 0949 1834 8330 68</p>
                 </div>
 
                 <div className='flex flex-col py-1 justify-center border-l-4 border-[#ffed48] pl-3'> 
@@ -799,7 +799,7 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>Yasin Mercan</p>
+                  <p className='text-sm text-gray-700 '>Yasin Meşe</p>
                 </div>
 
                  <div className='flex gap-10  py-1  border-l-4 border-[#ffed48] pl-3'> 
