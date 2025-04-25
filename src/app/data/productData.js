@@ -70,12 +70,13 @@ export const productData = [
       ]
     }
   },
- 
+  
+  //İphone 11 
   {
-    id: "2",
+    id: "iphone-11-promax-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
-      title: "iPhone 15 promax 256 GB kutu fatura şarj mevcut",
+      title: "iPhone 11 promax 256 GB kutu fatura şarj mevcut",
       price: 41000,
       serviceFee: 450, // Hizmet bedeli
       get totalPrice() {
@@ -83,10 +84,14 @@ export const productData = [
       }, // Toplam fiyat (price + serviceFee)
 
       imagesUrls: [
-        "https://ik.imagekit.io/nsnnosdo1/iphone.jpg?updatedAt=1744387783440",
-        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(5).jpeg?updatedAt=1744388175045",
-        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(1).jpeg?updatedAt=1744388174985",
-        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(2).jpeg?updatedAt=1744388174772",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(7).jpeg?updatedAt=1745589104156",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(11).jpeg?updatedAt=1745589104356",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(9).jpeg?updatedAt=1745589104373",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(6).jpeg?updatedAt=1745589104389",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(8).jpeg?updatedAt=1745589104441",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(10).jpeg?updatedAt=1745589104525",
+        "https://ik.imagekit.io/nsnnosdo1/x16_1191642411xxc.jpg?updatedAt=1745589104463",
+        "https://ik.imagekit.io/nsnnosdo1/x16_1191642411oh4.jpg?updatedAt=1745589104474",
       ],
     
       specs: {
@@ -141,9 +146,10 @@ export const productData = [
       ]
     }
   },
- 
+  
+  //İphone 13 
   {
-    id: "iphone-15-pro-max-256-gb-kutu-fatura-sahibinden",
+    id: "iphone-13-promax-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
 
@@ -155,10 +161,17 @@ export const productData = [
       }, // Toplam fiyat (price + serviceFee)
 
       imagesUrls: [
-        "https://ik.imagekit.io/nsnnosdo1/iphone.jpg?updatedAt=1744387783440",
-        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(5).jpeg?updatedAt=1744388175045",
-        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(1).jpeg?updatedAt=1744388174985",
-        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(2).jpeg?updatedAt=1744388174772",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411h6s.jpg?updatedAt=1745589238024",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411y2s.jpg?updatedAt=1745589237976",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411jte.jpg?updatedAt=1745589237995",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411bhw.jpg?updatedAt=1745589237934",
+      "https://ik.imagekit.io/nsnnosdo1/x16_11916424116dm.jpg?updatedAt=1745589237915",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411b6r.jpg?updatedAt=1745589237877",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411jga.jpg?updatedAt=1745589237866",
+      "https://ik.imagekit.io/nsnnosdo1/x16_11916424114bn.jpg?updatedAt=1745589237762",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411xxc.jpg?updatedAt=1745589238048",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411oh4.jpg?updatedAt=1745589237893",
+
       ],
     
       specs: {
