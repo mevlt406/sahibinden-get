@@ -73,11 +73,11 @@ export const productData = [
   
   //İphone 11 
   {
-    id: "iphone-11-promax-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    id: "iphone-11-pro-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
-      title: "iPhone 11 promax 256 GB kutu fatura şarj mevcut",
-      price: 41000,
+      title: "iPhone 11 pro 256 GB kutu fatura şarj mevcut",
+      price: 8000,
       serviceFee: 450, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
@@ -108,15 +108,15 @@ export const productData = [
 
     // Satıcı Bilgileri
     seller: {
-      name: "Veyis Aydın",
-      location: "Bursa / Gemlik / Kumla Mahallesi",
+      name: "Salih Keskin",
+      location: "Mersin / Anamur / Merkez",
     },
 
     // İlan Detayları
     listing: {
       id: "323847328",
-      date: "31 Mart 2025",
-      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 15 Pro Max Türkiye Cihaz",
+      date: "25 Nisan 2025",
+      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 11 Pro Türkiye Cihaz",
       type: "Sahibinden"
     },
 
