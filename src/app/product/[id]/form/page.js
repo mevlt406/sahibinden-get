@@ -799,7 +799,7 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>Yasin Meşe</p>
+                  <p className='text-sm text-gray-700 '>Tuğba Kaya</p>
                 </div>
 
                  <div className='flex gap-10  py-1  border-l-4 border-[#ffed48] pl-3'> 
