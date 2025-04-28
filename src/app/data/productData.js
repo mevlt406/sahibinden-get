@@ -76,7 +76,7 @@ export const productData = [
     id: "iphone-11-pro-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
-      title: "iPhone 11 pro 256 GB kutu fatura şarj mevcut",
+      title: "iPhone 11 256 GB kutu fatura şarj mevcut",
       price: 8500,
       serviceFee: 175, // Hizmet bedeli
       get totalPrice() {
