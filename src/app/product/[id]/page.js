@@ -317,6 +317,7 @@ export default function ProductPage() {
 
           
          
+
         
         
         </div>
@@ -325,11 +326,11 @@ export default function ProductPage() {
 
 
 
-        {activeTab === 1 && <div className="w-full h-full flex flex-col  px-2 py-3 text-sm"> Türkiye cihaz Kutu fatura mevcut Değişen yok tamir görmedi 
-Vuruk kırık ezik yok sıfır ayarında 
+        {activeTab === 1 && <div className="w-full h-full flex flex-col  px-2 py-3 text-sm"> Türkiye cihaz Kutu fatura mevcut Değişen yok tamir görmedi  Vuruk kırık ezik yok sıfır ayarında 
 Garanti  12 ay devam ediyor 
 Pil durumu % 98
-Takas yapmıyorum </div>}
+Takas yapmıyorum 
+</div>}
       
       
         {activeTab === 2 && (
