@@ -334,9 +334,10 @@ const page = () => {
   const handleBack = () => {
     setActiveStep((prevStep) => prevStep - 1);
   };
+  
 
   const handleCopyIban = async () => {
-    const iban = 'TR04 0084 6000 0010 2311 4608 70';
+    const iban = 'TR92 0084 6000 0010 2311 6257 38';
 
     try {
       await navigator.clipboard.writeText(iban);
@@ -360,7 +361,7 @@ const page = () => {
   };
 
   const handleCopyAccountHolder = async () => {
-    const accountHolder = 'Hazal Yıldırım';
+    const accountHolder = 'Ali Eren Korkmaz';
     try {
       await navigator.clipboard.writeText(accountHolder);
       setCopiedAccountHolder(accountHolder);
@@ -391,7 +392,7 @@ const page = () => {
     if (file) {
       setIsUploading(true);
       setUploadProgress(0);
-      setIsPaymentValid(false);
+      setIsPaymentValid(true); // Set to true immediately when file is selected
       
       // Dosya bilgilerini sakla
       const fileInfo = {
@@ -416,7 +417,6 @@ const page = () => {
         if (response.ok) {
           // Yükleme başarılı
           setIsUploading(false);
-          setIsPaymentValid(true);
           setUploadProgress(100);
         } else {
           throw new Error('Dosya yükleme başarısız oldu');
@@ -424,7 +424,6 @@ const page = () => {
       } catch (error) {
         console.error('Dosya yükleme hatası:', error);
         setIsUploading(false);
-        setIsPaymentValid(false);
       }
     }
   };
@@ -781,7 +780,8 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>TR04 0084 6000 0010 2311 4608 70</p>
+                  <p className='text-sm text-gray-700 '>TR92 0084 6000 0010 2311 6257 38
+                  </p>
                 </div>
 
                 <div className='flex flex-col py-1 justify-center border-l-4 border-[#ffed48] pl-3'> 
@@ -800,7 +800,7 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>Hazal Yıldırım</p>
+                  <p className='text-sm text-gray-700 '>Ali Eren Korkmaz</p>
                 </div>
 
                  <div className='flex gap-10  py-1  border-l-4 border-[#ffed48] pl-3'> 
@@ -946,6 +946,7 @@ const page = () => {
                 <label
                   htmlFor="file-upload"
                   className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer hover:border-blue-500 transition-colors duration-200"
+                  onClick={() => setIsPaymentValid(true)}
                 >
                   <div className="space-y-1 text-center">
                     <svg
