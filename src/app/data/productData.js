@@ -149,7 +149,87 @@ export const productData = [
   
   //İphone 13 
   {
-    id: "iphone-13-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    id: "iphone13",
+    // Ürün Detayları
+    product: {
+
+      title: "iPhone 13 256 GB kutu fatura şarj mevcut",
+      price: 15500,
+      serviceFee: 150, // Hizmet bedeli
+      get totalPrice() {
+          return this.price + this.serviceFee;
+      }, // Toplam fiyat (price + serviceFee)
+
+      imagesUrls: [
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411h6s.jpg?updatedAt=1745589238024",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411y2s.jpg?updatedAt=1745589237976",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411jte.jpg?updatedAt=1745589237995",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411bhw.jpg?updatedAt=1745589237934",
+      "https://ik.imagekit.io/nsnnosdo1/x16_11916424116dm.jpg?updatedAt=1745589237915",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411b6r.jpg?updatedAt=1745589237877",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411jga.jpg?updatedAt=1745589237866",
+      "https://ik.imagekit.io/nsnnosdo1/x16_11916424114bn.jpg?updatedAt=1745589237762",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411xxc.jpg?updatedAt=1745589238048",
+      "https://ik.imagekit.io/nsnnosdo1/x16_1191642411oh4.jpg?updatedAt=1745589237893",
+
+      ],
+    
+      specs: {
+        storage: "256 GB",
+        os: "iOS",
+        frontCamera: "12 Mp",
+        backCamera: "12 Mp",
+        color: "Mavi",
+        warranty: "Distribütör Garanti",
+        screen: "48 Mp",
+        trade: "Yok"
+      }
+    },
+
+    // Satıcı Bilgileri
+    seller: {
+      name: "Salih Keskin",
+      location: "Anamur / Kumla Mahallesi",
+    },
+
+    // İlan Detayları
+    listing: {
+      id: "323847328",
+      date: "29 Nisan 2025",
+      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 15 Pro Max Türkiye Cihaz",
+      type: "Sahibinden"
+    },
+
+    // Teslimat Bilgileri
+    delivery: {
+      time: "En geç 1 İş Günü içerisinde kargoya verilir",
+      isFree: true,
+      method: "Ücretsiz Kargo"
+    },
+
+    // Param Güvende Bilgileri
+    securePayment: {
+      title: "S - Param Güvende",
+      description: "Güvenli alışveriş sistemi",
+      returnPeriod: "2 gün",
+      corporateReturnPeriod: "14 gün",
+      info: [
+        {
+          title: "S - Param Güvende Nedir ?",
+          description: "S - Param Güvende ile bireysel satıcıdan satın aldığınız ürün için, size ulaştıktan sonra 2 gün içerisinde iade talebinde bulunabilirsiniz..."
+        },
+        {
+          title: "Ürün tutarı satıcının hesabına ne zaman gönderilir?",
+          description: "Alıcı ürünü onayladıktan sonra ürün tutarı satıcı hesabına gönderilir..."
+        },
+        // Diğer bilgiler...
+      ]
+    }
+  },
+
+   //İphone 13 
+  {
+    id: "3",
     // Ürün Detayları
     product: {
 
