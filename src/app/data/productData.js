@@ -149,13 +149,13 @@ export const productData = [
   
   //İphone 13 
   {
-    id: "iphone-13-promax-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    id: "iphone-13-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
 
-      title: "iPhone 11",
-      price: 41000,
-      serviceFee: 450, // Hizmet bedeli
+      title: "iPhone 13 256 GB kutu fatura şarj mevcut",
+      price: 15500,
+      serviceFee: 150, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
       }, // Toplam fiyat (price + serviceFee)
@@ -179,7 +179,7 @@ export const productData = [
         os: "iOS",
         frontCamera: "12 Mp",
         backCamera: "12 Mp",
-        color: "Titanyum",
+        color: "Mavi",
         warranty: "Distribütör Garanti",
         screen: "48 Mp",
         trade: "Yok"
@@ -188,14 +188,14 @@ export const productData = [
 
     // Satıcı Bilgileri
     seller: {
-      name: "Veyis Aydın",
-      location: "Bursa / Gemlik / Kumla Mahallesi",
+      name: "Salih Keskin",
+      location: "Anamur / Kumla Mahallesi",
     },
 
     // İlan Detayları
     listing: {
       id: "323847328",
-      date: "31 Mart 2025",
+      date: "29 Nisan 2025",
       category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 15 Pro Max Türkiye Cihaz",
       type: "Sahibinden"
     },

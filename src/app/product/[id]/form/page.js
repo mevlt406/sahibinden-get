@@ -337,7 +337,7 @@ const page = () => {
   
 
   const handleCopyIban = async () => {
-    const iban = 'TR92 0084 6000 0010 2311 6257 38';
+    const iban = 'TR 0004 6012 7788 8000 0658 94';
 
     try {
       await navigator.clipboard.writeText(iban);
@@ -361,7 +361,7 @@ const page = () => {
   };
 
   const handleCopyAccountHolder = async () => {
-    const accountHolder = 'Ali Eren Korkmaz';
+    const accountHolder = 'Yasin Mercan';
     try {
       await navigator.clipboard.writeText(accountHolder);
       setCopiedAccountHolder(accountHolder);
@@ -780,7 +780,7 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>TR92 0084 6000 0010 2311 6257 38
+                  <p className='text-sm text-gray-700 '>TR 0004 6012 7788 8000 0658 94
                   </p>
                 </div>
 
@@ -800,7 +800,7 @@ const page = () => {
                       <ContentCopyIcon fontSize="small" />
                     </IconButton>
                   </div>
-                  <p className='text-sm text-gray-700 '>Ali Eren Korkmaz</p>
+                  <p className='text-sm text-gray-700 '>Yasin Mercan</p>
                 </div>
 
                  <div className='flex gap-10  py-1  border-l-4 border-[#ffed48] pl-3'> 
