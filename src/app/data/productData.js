@@ -196,7 +196,7 @@ export const productData = [
     listing: {
       id: "323847328",
       date: "29 Nisan 2025",
-      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 15 Pro Max Türkiye Cihaz",
+      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 13 Türkiye Cihaz",
       type: "Sahibinden"
     },
 
