@@ -149,12 +149,12 @@ export const productData = [
   
   //İphone 13 
   {
-    id: "iphone-13-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    id: "iphone-13-128-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
 
-      title: "iPhone 13 256 GB kutu fatura şarj mevcut",
-      price: 15500,
+      title: "iPhone 13 128 GB kutu fatura şarj mevcut",
+      price: 16400,
       serviceFee: 150, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
@@ -175,7 +175,7 @@ export const productData = [
       ],
     
       specs: {
-        storage: "256 GB",
+        storage: "128 GB",
         os: "iOS",
         frontCamera: "12 Mp",
         backCamera: "12 Mp",
