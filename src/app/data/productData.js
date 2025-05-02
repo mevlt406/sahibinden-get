@@ -154,7 +154,7 @@ export const productData = [
     product: {
 
       title: "iPhone 13 128 GB kutu fatura şarj mevcut",
-      price: 16400,
+      price: 15500,
       serviceFee: 150, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
