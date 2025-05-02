@@ -77,7 +77,7 @@ export const productData = [
     // Ürün Detayları
     product: {
       title: "iPhone 11 128 GB kutu fatura şarj mevcut",
-      price: 9000,
+      price: 9600,
       serviceFee: 175, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
