@@ -70,14 +70,13 @@ export const productData = [
       ]
     }
   },
-  
   //İphone 11 
   {
-    id: "iphone-11-pro-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    id: "iphone-11-128-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
       title: "iPhone 11 128 GB kutu fatura şarj mevcut",
-      price: 9600,
+      price: 9900,
       serviceFee: 175, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
@@ -91,7 +90,6 @@ export const productData = [
         "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(8).jpeg?updatedAt=1745589104441",
         "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(10).jpeg?updatedAt=1745589104525",
         "https://ik.imagekit.io/nsnnosdo1/x16_1191642411xxc.jpg?updatedAt=1745589104463",
-        "https://ik.imagekit.io/nsnnosdo1/x16_1191642411oh4.jpg?updatedAt=1745589104474",
       ],
     
       specs: {
@@ -108,14 +106,14 @@ export const productData = [
 
     // Satıcı Bilgileri
     seller: {
-      name: "Salih Keskin",
-      location: "Mersin / Anamur / Merkez",
+      name: "Gamze Türker",
+      location: "Kastamonu / Merkez",
     },
 
     // İlan Detayları
     listing: {
       id: "323847328",
-      date: "25 Nisan 2025",
+      date: "10 Mayıs 2025",
       category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 11 Pro Türkiye Cihaz",
       type: "Sahibinden"
     },
