@@ -146,6 +146,81 @@ export const productData = [
     }
   },
   
+  //İphone 11  x2
+  {
+    id: "iphone-11-128-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    // Ürün Detayları
+    product: {
+      title: "iPhone 11 128 GB kutu fatura şarj mevcut",
+      price: 9900,
+      serviceFee: 175, // Hizmet bedeli
+      get totalPrice() {
+          return this.price + this.serviceFee;
+      }, // Toplam fiyat (price + serviceFee)
+
+      imagesUrls: [
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(7).jpeg?updatedAt=1745589104156",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(11).jpeg?updatedAt=1745589104356",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(9).jpeg?updatedAt=1745589104373",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(6).jpeg?updatedAt=1745589104389",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(8).jpeg?updatedAt=1745589104441",
+        "https://ik.imagekit.io/nsnnosdo1/WhatsApp%20Image%202025-03-31%20at%2019.20.15%20(10).jpeg?updatedAt=1745589104525",
+        "https://ik.imagekit.io/nsnnosdo1/x16_1191642411xxc.jpg?updatedAt=1745589104463",
+      ],
+    
+      specs: {
+        storage: "128 GB",
+        os: "iOS",
+        frontCamera: "12 Mp",
+        backCamera: "12 Mp",
+        color: "Titanyum",
+        warranty: "Distribütör Garanti",
+        screen: "48 Mp",
+        trade: "Yok"
+      }
+    },
+
+    // Satıcı Bilgileri
+    seller: {
+      name: "Gamze Türker",
+      location: "Kastamonu / Merkez",
+    },
+
+    // İlan Detayları
+    listing: {
+      id: "323847328",
+      date: "10 Mayıs 2025",
+      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 11 Pro Türkiye Cihaz",
+      type: "Sahibinden"
+    },
+
+    // Teslimat Bilgileri
+    delivery: {
+      time: "En geç 1 İş Günü içerisinde kargoya verilir",
+      isFree: true,
+      method: "Ücretsiz Kargo"
+    },
+
+    // Param Güvende Bilgileri
+    securePayment: {
+      title: "S - Param Güvende",
+      description: "Güvenli alışveriş sistemi",
+      returnPeriod: "2 gün",
+      corporateReturnPeriod: "14 gün",
+      info: [
+        {
+          title: "S - Param Güvende Nedir ?",
+          description: "S - Param Güvende ile bireysel satıcıdan satın aldığınız ürün için, size ulaştıktan sonra 2 gün içerisinde iade talebinde bulunabilirsiniz..."
+        },
+        {
+          title: "Ürün tutarı satıcının hesabına ne zaman gönderilir?",
+          description: "Alıcı ürünü onayladıktan sonra ürün tutarı satıcı hesabına gönderilir..."
+        },
+        // Diğer bilgiler...
+      ]
+    }
+  },
+  
   //İphone 13 
   {
     id: "iphone-13-128-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
