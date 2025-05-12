@@ -70,9 +70,10 @@ export const productData = [
       ]
     }
   },
+  
   //İphone 11 
   {
-    id: "iphone-11-128-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
+    id: "iphone-11-pro-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
       title: "iPhone 11 128 GB kutu fatura şarj mevcut",
