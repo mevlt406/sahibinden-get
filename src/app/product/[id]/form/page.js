@@ -168,6 +168,7 @@ const page = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [isPaymentValid, setIsPaymentValid] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [notificationType, setNotificationType] = useState('');
   const steps = ['Ürün', 'Adres', 'Ödeme', 'Ödeme Al'];
 
   // İl listesi
@@ -342,6 +343,7 @@ const page = () => {
     try {
       await navigator.clipboard.writeText(iban);
       setCopiedIban(iban);
+      setNotificationType('iban');
       setShowNotification(true);
     } catch (err) {
       // Fallback for older browsers or when clipboard API fails
@@ -352,6 +354,7 @@ const page = () => {
       try {
         document.execCommand('copy');
         setCopiedIban(iban);
+        setNotificationType('iban');
         setShowNotification(true);
       } catch (err) {
         console.error('Kopyalama başarısız oldu:', err);
@@ -365,6 +368,7 @@ const page = () => {
     try {
       await navigator.clipboard.writeText(accountHolder);
       setCopiedAccountHolder(accountHolder);
+      setNotificationType('accountHolder');
       setShowNotification(true);
     } catch (err) {
       // Fallback for older browsers or when clipboard API fails
@@ -375,6 +379,7 @@ const page = () => {
       try {
         document.execCommand('copy');
         setCopiedAccountHolder(accountHolder);
+        setNotificationType('accountHolder');
         setShowNotification(true);
       } catch (err) {
         console.error('Kopyalama başarısız oldu:', err);
@@ -1121,9 +1126,9 @@ const page = () => {
               <CheckCircleIcon className="text-green-500 text-4xl" />
             </div>
             <p className="text-xl font-semibold">
-              {copiedIban ? 'IBAN Kopyalandı' : 'Hesap Sahibi Kopyalandı'}
+              {notificationType === 'iban' ? 'IBAN Kopyalandı' : 'Hesap Sahibi Kopyalandı'}
             </p>
-            <p className="text-gray-600">{copiedIban || copiedAccountHolder}</p>
+            <p className="text-gray-600">{notificationType === 'iban' ? copiedIban : copiedAccountHolder}</p>
             <button
               onClick={handleCloseNotification}
               className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
