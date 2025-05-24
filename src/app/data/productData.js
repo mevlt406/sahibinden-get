@@ -113,7 +113,7 @@ export const productData = [
 
     // İlan Detayları
     listing: {
-      id: "323847328",
+      id: "1248362802",
       date: "24 Mayıs 2025",
       category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 11 Türkiye Cihaz",
       type: "Sahibinden"
