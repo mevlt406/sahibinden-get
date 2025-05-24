@@ -76,8 +76,8 @@ export const productData = [
     id: "iphone-11-pro-256-gb-tr-cihaz-kutu-fatura-sarj-mevcut-s-get-id-25032025122835-4980",
     // Ürün Detayları
     product: {
-      title: "iPhone 11 128 GB kutu fatura şarj mevcut",
-      price: 9900,
+      title: "İphone 11 TR Cihaz Fatura Kutu Mevcut Biraz Acil",
+      price: 10200,
       serviceFee: 175, // Hizmet bedeli
       get totalPrice() {
           return this.price + this.serviceFee;
@@ -107,15 +107,15 @@ export const productData = [
 
     // Satıcı Bilgileri
     seller: {
-      name: "Gamze Türker",
+      name: "Salih Keskin",
       location: "Kastamonu / Merkez",
     },
 
     // İlan Detayları
     listing: {
       id: "323847328",
-      date: "10 Mayıs 2025",
-      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 11 Pro Türkiye Cihaz",
+      date: "24 Mayıs 2025",
+      category: "İkinci El ve Sıfır Alışveriş > Elektronik Eşya > Telefon > iPhone 11 Türkiye Cihaz",
       type: "Sahibinden"
     },
 
